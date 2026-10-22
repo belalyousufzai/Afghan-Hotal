@@ -1,0 +1,836 @@
+/* ========================================
+   1. General Settings
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #153e35;
+    --secondary-color: #d5ad68;
+    --accent-color: #25d366;
+    --background-color: #f8f9f7;
+    --white-color: #ffffff;
+    --text-color: #25332f;
+    --muted-color: #748079;
+    --border-color: #e5e9e5;
+    --shadow: 0 8px 25px rgba(21, 62, 53, 0.08);
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    font-family: Tahoma, Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.8;
+    direction: rtl;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+.container {
+    width: min(1180px, 92%);
+    margin: 0 auto;
+}
+
+.section-padding {
+    padding: 85px 0;
+}
+
+
+/* ========================================
+   2. Header and Navigation
+======================================== */
+
+.header {
+    background-color: var(--white-color);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    min-height: 82px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.logo {
+    color: var(--primary-color);
+    font-size: 25px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.logo span {
+    color: var(--secondary-color);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-links a {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--secondary-color);
+}
+
+.header-button {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    padding: 11px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    white-space: nowrap;
+    transition: background-color 0.3s ease;
+}
+
+.header-button:hover {
+    background-color: #245b4d;
+}
+
+
+/* ========================================
+   3. Hero Section
+======================================== */
+
+.hero {
+    min-height: 570px;
+    display: flex;
+    align-items: center;
+    color: var(--white-color);
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(10, 30, 25, 0.55),
+            rgba(10, 30, 25, 0.88)
+        ),
+        url("https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=2000&q=85");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content {
+    padding-top: 65px;
+    padding-bottom: 65px;
+}
+
+.hero-label {
+    color: var(--secondary-color);
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    font-size: clamp(32px, 4.5vw, 54px);
+    line-height: 1.5;
+    max-width: 750px;
+    margin-bottom: 18px;
+}
+
+.hero h1 span {
+    color: var(--secondary-color);
+}
+
+.hero-description {
+    color: #e2e9e5;
+    max-width: 650px;
+    font-size: 16px;
+    margin-bottom: 35px;
+}
+
+
+/* ========================================
+   4. Search Form
+======================================== */
+
+.search-form {
+    background-color: var(--white-color);
+    border-radius: 14px;
+    padding: 18px;
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    align-items: end;
+    gap: 15px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    max-width: 950px;
+}
+
+.search-field {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.search-field label {
+    color: var(--text-color);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.search-field select {
+    width: 100%;
+    min-height: 48px;
+    padding: 10px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: #fbfcfb;
+    color: var(--text-color);
+    outline: none;
+    cursor: pointer;
+}
+
+.search-field select:focus {
+    border-color: var(--secondary-color);
+}
+
+.search-button {
+    min-height: 48px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--secondary-color);
+    color: #1d2a24;
+    font-weight: 800;
+    padding: 10px 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+    background-color: #e5c38e;
+}
+
+
+/* ========================================
+   5. Section Headings
+======================================== */
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-label {
+    color: #a17a39;
+    font-size: 14px;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.section-heading h2 {
+    color: var(--primary-color);
+    font-size: clamp(25px, 3vw, 34px);
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+.section-heading > p:last-child {
+    color: var(--muted-color);
+    font-size: 15px;
+}
+
+
+/* ========================================
+   6. Cities Section
+======================================== */
+
+.cities {
+    background-color: var(--white-color);
+}
+
+.cities-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.city-card {
+    position: relative;
+    height: 270px;
+    overflow: hidden;
+    border-radius: 14px;
+    background-color: #dce5df;
+    box-shadow: var(--shadow);
+    isolation: isolate;
+}
+
+.city-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(7, 24, 19, 0.88),
+        rgba(7, 24, 19, 0.02) 75%
+    );
+    z-index: 0;
+}
+
+.city-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.city-card:hover img {
+    transform: scale(1.08);
+}
+
+.city-card-content {
+    position: absolute;
+    bottom: 22px;
+    right: 20px;
+    left: 20px;
+    color: var(--white-color);
+    z-index: 1;
+}
+
+.city-card-content h3 {
+    font-size: 24px;
+    margin-bottom: 3px;
+}
+
+.city-card-content p {
+    font-size: 13px;
+    color: #e4ebe6;
+}
+
+
+/* ========================================
+   7. Hotels Section
+======================================== */
+
+.hotels {
+    background-color: var(--background-color);
+}
+
+.hotels-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+}
+
+.hotel-card {
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    background-color: var(--white-color);
+    box-shadow: var(--shadow);
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.hotel-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(21, 62, 53, 0.13);
+}
+
+.hotel-image {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    background-color: #e3e8e3;
+}
+
+.hotel-content {
+    padding: 24px;
+}
+
+.hotel-location {
+    color: #a17a39;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.hotel-content h3 {
+    color: var(--primary-color);
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.hotel-description {
+    color: var(--muted-color);
+    font-size: 14px;
+    margin-bottom: 18px;
+}
+
+.hotel-amenities {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 22px;
+}
+
+.hotel-amenities span {
+    background-color: #f0f5f1;
+    color: #355b4d;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+}
+
+.hotel-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border-color);
+    margin-bottom: 18px;
+}
+
+.hotel-price {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+}
+
+.hotel-price strong {
+    color: var(--primary-color);
+    font-size: 27px;
+    direction: ltr;
+}
+
+.hotel-price span {
+    color: var(--muted-color);
+    font-size: 13px;
+}
+
+.details-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 9px 20px;
+    border: 1px solid var(--primary-color);
+    border-radius: 7px;
+    color: var(--primary-color);
+    font-size: 14px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.details-button:hover {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+
+/* ========================================
+   8. WhatsApp Button
+======================================== */
+
+.whatsapp-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    min-height: 48px;
+    padding: 12px 18px;
+    border-radius: 8px;
+    background-color: var(--accent-color);
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 800;
+    text-align: center;
+    transition:
+        background-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.whatsapp-button::before {
+    content: "●";
+    font-size: 13px;
+}
+
+.whatsapp-button:hover {
+    background-color: #1eae54;
+    transform: translateY(-2px);
+}
+
+
+/* ========================================
+   9. No Search Results
+======================================== */
+
+#noResults {
+    text-align: center;
+    color: var(--muted-color);
+    background-color: var(--white-color);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 25px;
+    margin-top: 25px;
+}
+
+
+/* ========================================
+   10. Features Section
+======================================== */
+
+.features {
+    background-color: #edf3ee;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+}
+
+.feature-card {
+    background-color: var(--white-color);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 30px 25px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.feature-card h3 {
+    color: var(--primary-color);
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.feature-card p {
+    color: var(--muted-color);
+    font-size: 14px;
+}
+
+
+/* ========================================
+   11. Footer
+======================================== */
+
+.footer {
+    background-color: #102f28;
+    color: #e3ebe6;
+    padding-top: 55px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 45px;
+    padding-bottom: 40px;
+}
+
+.footer-logo {
+    display: inline-block;
+    color: var(--white-color);
+    margin-bottom: 15px;
+}
+
+.footer-content p {
+    color: #bdcbc2;
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+.footer-content h3 {
+    color: var(--white-color);
+    font-size: 17px;
+    margin-bottom: 15px;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.footer-links a {
+    color: #bdcbc2;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--secondary-color);
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 18px 15px;
+}
+
+.footer-bottom p {
+    font-size: 13px;
+    color: #bdcbc2;
+}
+
+
+/* ========================================
+   12. Responsive Design: Tablets
+======================================== */
+
+@media (max-width: 992px) {
+    .navbar {
+        flex-wrap: wrap;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    .nav-links {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px 22px;
+    }
+
+    .cities-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .hotels-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+    }
+
+    .hotel-image {
+        height: 220px;
+    }
+
+    .hotel-content {
+        padding: 18px;
+    }
+
+    .hotel-content h3 {
+        font-size: 19px;
+    }
+
+    .footer-content {
+        gap: 25px;
+    }
+}
+
+
+/* ========================================
+   13. Responsive Design: Mobile
+======================================== */
+
+@media (max-width: 600px) {
+    .container {
+        width: 92%;
+    }
+
+    .section-padding {
+        padding: 55px 0;
+    }
+
+    .navbar {
+        gap: 12px;
+    }
+
+    .logo {
+        font-size: 21px;
+    }
+
+    .header-button {
+        font-size: 12px;
+        padding: 9px 12px;
+    }
+
+    .nav-links {
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding: 5px 0;
+        gap: 18px;
+    }
+
+    .nav-links a {
+        font-size: 12px;
+        white-space: nowrap;
+    }
+
+    .hero {
+        min-height: auto;
+        background-position: center;
+    }
+
+    .hero-content {
+        padding-top: 55px;
+        padding-bottom: 55px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero-description {
+        font-size: 14px;
+    }
+
+    .search-form {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 16px;
+    }
+
+    .search-button {
+        width: 100%;
+    }
+
+    .section-heading {
+        margin-bottom: 28px;
+    }
+
+    .section-heading h2 {
+        font-size: 25px;
+    }
+
+    .cities-grid {
+        gap: 12px;
+    }
+
+    .city-card {
+        height: 190px;
+        border-radius: 10px;
+    }
+
+    .city-card-content {
+        right: 12px;
+        left: 12px;
+        bottom: 12px;
+    }
+
+    .city-card-content h3 {
+        font-size: 20px;
+    }
+
+    .city-card-content p {
+        font-size: 11px;
+    }
+
+    .hotels-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .hotel-image {
+        height: 230px;
+    }
+
+    .hotel-content {
+        padding: 20px;
+    }
+
+    .hotel-content h3 {
+        font-size: 21px;
+    }
+
+    .hotel-bottom {
+        gap: 8px;
+    }
+
+    .hotel-price strong {
+        font-size: 24px;
+    }
+
+    .details-button {
+        padding: 8px 15px;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .feature-card {
+        padding: 25px 20px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .footer-bottom p {
+        font-size: 11px;
+    }
+}
+
+
+/* ========================================
+   14. Keyboard Accessibility
+======================================== */
+
+a:focus-visible,
+button:focus-visible,
+select:focus-visible {
+    outline: 3px solid var(--secondary-color);
+    outline-offset: 4px;
+}
+
+
+/* ========================================
+   15. Reduced Motion Preference
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}
