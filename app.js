@@ -100,10 +100,6 @@ whatsappButtons.forEach(function (button) {
 
         if (!whatsappLink || whatsappLink.includes("XXXXXXXX")) {
             event.preventDefault();
-
-            alert(
-                "شماره واتساپ این هوتل هنوز تنظیم نشده است."
-            );
         }
     });
 });
