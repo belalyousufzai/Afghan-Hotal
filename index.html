@@ -3,506 +3,806 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>هوتل‌یاب | رزرو هوتل</title>
-
     <meta
         name="description"
-        content="بهترین هوتل‌های افغانستان را پیدا کنید و از طریق واتساپ رزرو نمایید."
+        content="هوتل‌یاب؛ بهترین هوتل‌های افغانستان را پیدا کنید، قیمت‌ها را مقایسه کنید و برای رزرو مستقیم با هوتل تماس بگیرید."
     >
-
+    <meta name="theme-color" content="#102f2b">
+    <title>هوتل‌یاب | تجربه یک اقامت لوکس</title>
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1920&q=90"
+        rel="stylesheet"
+    >
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
+    <!-- JavaScript -->
+    <script src="app.js" defer></script>
 </head>
-
 <body>
-
-    <!-- Header -->
+    <!-- ==============================
+         HEADER
+    =============================== -->
     <header class="header">
         <div class="container navbar">
-
-            <a href="index.html" class="logo">
-                هوتل‌یاب
+            <a href="#home" class="logo">
+                <span class="logo-symbol">H</span>
+                <span class="logo-text">
+                    <strong>هوتل‌یاب</strong>
+                    <small>بهترین هوتل‌ها، در یک‌جا</small>
+                </span>
             </a>
-
-            <nav class="nav-links">
-                <a href="#home">صفحه اصلی</a>
-                <a href="#cities">شهرها</a>
-                <a href="#hotels">هوتل‌ها</a>
-                <a href="#about">درباره ما</a>
-                <a href="#contact">تماس با ما</a>
+            <nav class="nav-links" id="navLinks">
+                <a href="#home" class="nav-link active">صفحه اصلی</a>
+                <a href="#cities" class="nav-link">شهرها</a>
+                <a href="#hotels" class="nav-link">هوتل‌ها</a>
+                <a href="#about" class="nav-link">درباره ما</a>
+                <a href="#contact" class="nav-link">تماس با ما</a>
             </nav>
-
-            <a href="#hotels" class="header-button">
-                پیدا کردن هوتل
-            </a>
-
+            <div class="header-actions">
+                <a href="#favorites" class="header-favorite">
+                    ♡
+                    <span>علاقه‌مندی‌ها</span>
+                </a>
+                <button
+                    type="button"
+                    class="mobile-menu-btn"
+                    id="mobileMenuBtn"
+                    aria-label="باز کردن منو"
+                    aria-expanded="false"
+                >
+                   ☰
+                </button>
+            </div>
         </div>
     </header>
-
-
-    <!-- Hero Section -->
     <main>
-
+        <!-- ==============================
+             HERO SECTION
+        =============================== -->
         <section class="hero" id="home">
-            <div class="container hero-content">
-
-                <p class="hero-label">
-                    به هوتل‌یاب خوش آمدید
-                </p>
-
-                <h1>
-                    هوتل مناسب خود را
-                    <span>به آسانی پیدا کنید</span>
-                </h1>
-
-                <p class="hero-description">
-                    هوتل‌های شهرهای افغانستان را مشاهده کنید،
-                    قیمت‌ها را مقایسه کنید و از طریق واتساپ
-                    مستقیماً با مسئول هوتل تماس بگیرید.
-                </p>
-
+            <div class="hero-background"></div>
+            <div class="hero-overlay"></div>
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <span class="hero-badge">
+                        ✦ تجربه یک اقامت لوکس
+                    </span>
+                    <h1>
+                        هوتل مناسب خود را
+                        <span>در افغانستان</span>
+                        پیدا کنید
+                    </h1>
+                    <p class="hero-description">
+                        هوتل‌های مختلف را مقایسه کنید، قیمت‌ها را ببینید
+                        و برای رزرو مستقیم با هوتل تماس بگیرید.
+                    </p>
+                </div>
                 <!-- Hotel Search Form -->
-                <form class="search-form" id="searchForm">
-
+                <form id="searchForm" class="search-box">
+                    <!-- City -->
                     <div class="search-field">
-                        <label for="city">شهر مورد نظر</label>
-
+                        <label for="city">
+                            <span class="field-icon">⌖</span>
+                            شهر مورد نظر
+                        </label>
                         <select id="city" name="city">
-                            <option value="">تمام شهرها</option>
-                            <option value="کابل">کابل</option>
-                            <option value="هرات">هرات</option>
-                            <option value="مزار شریف">مزار شریف</option>
-                            <option value="قندهار">قندهار</option>
+                            <option value="all">تمام شهرها</option>
+                            <option value="kabul">کابل</option>
+                            <option value="herat">هرات</option>
+                            <option value="mazar">مزار شریف</option>
+                            <option value="kandahar">قندهار</option>
                         </select>
                     </div>
-
+                    <!-- Check In -->
                     <div class="search-field">
-                        <label for="maxPrice">حداکثر قیمت هر شب</label>
-
+                        <label for="searchCheckIn">
+                            <span class="field-icon">▦</span>
+                            تاریخ ورود
+                        </label>
+                        <input
+                            type="date"
+                            id="searchCheckIn"
+                            name="checkIn"
+                            required
+                        >
+                    </div>
+                    <!-- Check Out -->
+                    <div class="search-field">
+                        <label for="searchCheckOut">
+                            <span class="field-icon">▦</span>
+                            تاریخ خروج
+                        </label>
+                        <input
+                            type="date"
+                            id="searchCheckOut"
+                            name="checkOut"
+                            required
+                        >
+                    </div>
+                    <!-- Guests -->
+                    <div class="search-field">
+                        <label for="searchGuests">
+                            <span class="field-icon">♙</span>
+                            تعداد مهمانان
+                        </label>
+                        <select id="searchGuests" name="guests">
+                            <option value="1">۱ نفر</option>
+                            <option value="2" selected>۲ نفر</option>
+                            <option value="3">۳ نفر</option>
+                            <option value="4">۴ نفر</option>
+                            <option value="5">۵ نفر یا بیشتر</option>
+                        </select>
+                    </div>
+                    <!-- Maximum Price -->
+                    <div class="search-field">
+                        <label for="maxPrice">
+                            <span class="field-icon">＄</span>
+                            حداکثر قیمت در هر شب
+                        </label>
                         <select id="maxPrice" name="maxPrice">
-                            <option value="">تمام قیمت‌ها</option>
-                            <option value="30">تا ۳۰ دالر</option>
+                            <option value="all">هر قیمت</option>
                             <option value="50">تا ۵۰ دالر</option>
                             <option value="100">تا ۱۰۰ دالر</option>
-                            <option value="200">تا ۲۰۰ دالر</option>
+                            <option value="150">تا ۱۵۰ دالر</option>
+                            <option value="300">تا ۳۰۰ دالر</option>
                         </select>
                     </div>
-
+                    <!-- Search Button -->
                     <button type="submit" class="search-button">
-                        جستجوی هوتل
+                        <span class="search-icon">⌕</span>
+                        <span>جست‌وجوی هوتل</span>
                     </button>
-
                 </form>
-
+                <!-- Hero Benefits -->
+                <div class="hero-benefits">
+                    <div class="benefit-item">
+                        <span class="benefit-icon">ϟ</span>
+                        <div>
+                            <strong>جست‌وجوی آسان</strong>
+                            <small>سریع و مطمئن</small>
+                        </div>
+                    </div>
+                    <div class="benefit-divider"></div>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">♢</span>
+                        <div>
+                            <strong>رزرو مستقیم</strong>
+                            <small>از طریق واتساپ</small>
+                        </div>
+                    </div>
+                    <div class="benefit-divider"></div>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">♧</span>
+                        <div>
+                            <strong>پشتیبانی و راهنمایی</strong>
+                            <small>همیشه در کنار شما</small>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
-
-
-        <!-- Cities Section -->
-        <section class="cities section-padding" id="cities">
+        <!-- ==============================
+             CITIES SECTION
+        =============================== -->
+        <section class="section cities-section" id="cities">
             <div class="container">
-
                 <div class="section-heading">
-                    <p class="section-label">مقصد خود را انتخاب کنید</p>
-
-                    <h2>هوتل‌ها بر اساس شهر</h2>
-
+                    <div class="section-heading-title">
+                        <span class="section-eyebrow">
+                            مقصد خود را انتخاب کنید
+                        </span>
+                        <h2>شهرهای محبوب افغانستان</h2>
+                    </div>
                     <p>
-                        هوتل‌های شهر مورد نظر خود را پیدا کنید.
+                        شهر مورد نظر خود را انتخاب کنید و هوتل‌های آن را ببینید.
                     </p>
                 </div>
-
                 <div class="cities-grid">
-
-                    <a href="#hotels" class="city-card" data-city="کابل">
+                    <button
+                        class="city-card"
+                        type="button"
+                        data-city="kabul"
+                    >
                         <img
-                            src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=600&q=80"
-                            alt="هوتل در کابل"
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyc9rzQ4Tv-ZMC9u0_Q3pj32mswUMhEJF5N3gIKO3kKg&s=10"
+                            alt="نمای شهری"
                             loading="lazy"
                         >
-                        <div class="city-card-content">
-                            <h3>کابل</h3>
-                            <p>مشاهده هوتل‌ها</p>
-                        </div>
-                    </a>
-
-                    <a href="#hotels" class="city-card" data-city="هرات">
+                        <span class="city-overlay"></span>
+                        <span class="city-info">
+                            <strong>کابل</strong>
+                            <small>پایتخت افغانستان ←</small>
+                        </span>
+                    </button>
+                    <button
+                        class="city-card"
+                        type="button"
+                        data-city="herat"
+                    >
                         <img
-                            src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=600&q=80"
-                            alt="هوتل در هرات"
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRi0Hw2BOADX4hYuOZctjwDVL1wQ3WVWj3NDG20kgbC_w&s=10"
+                            alt="نمای شهری"
                             loading="lazy"
                         >
-                        <div class="city-card-content">
-                            <h3>هرات</h3>
-                            <p>مشاهده هوتل‌ها</p>
-                        </div>
-                    </a>
-
-                    <a href="#hotels" class="city-card" data-city="مزار شریف">
+                        <span class="city-overlay"></span>
+                        <span class="city-info">
+                            <strong>هرات</strong>
+                            <small>شهر تاریخی افغانستان ←</small>
+                        </span>
+                    </button>
+                    <button
+                        class="city-card"
+                        type="button"
+                        data-city="mazar"
+                    >
                         <img
-                            src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=600&q=80"
-                            alt="هوتل در مزار شریف"
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR00ooX_cyeLb5UESvmVAHJB6XnWhG3mvwt47RlOw6Tow&s=10"
+                            alt="نمای شهر"
                             loading="lazy"
                         >
-                        <div class="city-card-content">
-                            <h3>مزار شریف</h3>
-                            <p>مشاهده هوتل‌ها</p>
-                        </div>
-                    </a>
-
-                    <a href="#hotels" class="city-card" data-city="قندهار">
+                        <span class="city-overlay"></span>
+                        <span class="city-info">
+                            <strong>مزار شریف</strong>
+                            <small>شمال افغانستان ←</small>
+                        </span>
+                    </button>
+                    <button
+                        class="city-card"
+                        type="button"
+                        data-city="kandahar"
+                    >
                         <img
-                            src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=600&q=80"
-                            alt="هوتل در قندهار"
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJJrH657eyst9PogdbIIAEwDwyb_CTyeDB3MNpDrLDNA&s=10"
+                            alt="نمای شهر"
                             loading="lazy"
                         >
-                        <div class="city-card-content">
-                            <h3>قندهار</h3>
-                            <p>مشاهده هوتل‌ها</p>
-                        </div>
-                    </a>
-
+                        <span class="city-overlay"></span>
+                        <span class="city-info">
+                            <strong>قندهار</strong>
+                            <small>جنوب افغانستان ←</small>
+                        </span>
+                    </button>
                 </div>
             </div>
         </section>
-
-
-        <!-- Hotels Section -->
-        <section class="hotels section-padding" id="hotels">
+        <!-- ==============================
+             HOTELS SECTION
+        =============================== -->
+        <section class="section hotels-section" id="hotels">
             <div class="container">
-
                 <div class="section-heading">
-                    <p class="section-label">انتخاب‌های پیشنهادی</p>
-
-                    <h2>هوتل‌های پیشنهادی</h2>
-
+                    <div class="section-heading-title">
+                        <span class="section-eyebrow">
+                            انتخاب‌های پیشنهادی
+                        </span>
+                        <h2>هوتل‌های محبوب</h2>
+                    </div>
                     <p>
-                        هوتل مورد نظر خود را انتخاب کنید و برای رزرو
-                        با مسئول هوتل تماس بگیرید.
+                        هوتل مناسب بودجه و نیاز خود را انتخاب کنید.
                     </p>
                 </div>
-
+                <!-- Category Filters -->
+                <div class="filter-buttons" id="filterButtons">
+                    <button
+                        type="button"
+                        class="filter-btn active"
+                        data-category="all"
+                    >
+                        همه هوتل‌ها
+                    </button>
+                    <button
+                        type="button"
+                        class="filter-btn"
+                        data-category="luxury"
+                    >
+                        لوکس
+                    </button>
+                    <button
+                        type="button"
+                        class="filter-btn"
+                        data-category="family"
+                    >
+                        خانوادگی
+                    </button>
+                    <button
+                        type="button"
+                        class="filter-btn"
+                        data-category="budget"
+                    >
+                        اقتصادی
+                    </button>
+                </div>
+                <!-- Hotel Cards -->
                 <div class="hotels-grid" id="hotelsGrid">
-
-                    <!-- Hotel 1 -->
-                    <article class="hotel-card"
-                        data-city="کابل"
-                        data-price="45">
-
-                        <img
-                            class="hotel-image"
-                            src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80"
-                            alt="تصویر نمونه هوتل"
-                            loading="lazy"
-                        >
-
-                        <div class="hotel-content">
-
-                            <div class="hotel-location">
-                                کابل، افغانستان
-                            </div>
-
-                            <h3>هوتل نمونه کابل</h3>
-
-                            <p class="hotel-description">
-                                هوتل نمونه با اتاق‌های راحت و امکانات مناسب.
+                    <!-- HOTEL 1 -->
+                    <article
+                        class="hotel-card"
+                        data-id="hotel-1"
+                        data-name="هوتل کابل"
+                        data-city="kabul"
+                        data-price="120"
+                        data-category="luxury"
+                    >
+                        <div class="hotel-image">
+                            <img
+                                src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=900&q=85"
+                                alt="هوتل لوکس با استخر"
+                                loading="lazy"
+                            >
+                            <span class="hotel-badge luxury-badge">
+                                لوکس
+                            </span>
+                            <button
+                                type="button"
+                                class="favorite-btn"
+                                aria-label="افزودن به علاقه‌مندی‌ها"
+                                aria-pressed="false"
+                            >
+                                ♡
+                            </button>
+                        </div>
+                        <div class="hotel-info">
+                            <p class="hotel-location">
+                                📍 کابل، افغانستان
                             </p>
-
-                            <div class="hotel-amenities">
-                                <span>وای‌فای</span>
-                                <span>پارکینگ</span>
-                                <span>رستورانت</span>
+                            <h3>هوتل گرند کابل</h3>
+                            <div class="hotel-rating">
+                                <span>★ 4.9</span>
+                                <small>اقامت لوکس</small>
                             </div>
-
+                            <div class="hotel-amenities">
+                                <span>▧ وای‌فای</span>
+                                <span>♨ رستورانت</span>
+                                <span>❄ تهویه</span>
+                            </div>
                             <div class="hotel-bottom">
-
-                                <p class="hotel-price">
+                                <div class="hotel-price">
+                                    <strong>$120</strong>
+                                    <span>/ هر شب</span>
+                                </div>
+                                <button
+                                    type="button"
+                                    class="details-btn"
+                                >
+                                    جزئیات
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- HOTEL 2 -->
+                    <article
+                        class="hotel-card"
+                        data-id="hotel-2"
+                        data-name="هوتل هرات"
+                        data-city="herat"
+                        data-price="65"
+                        data-category="family"
+                    >
+                        <div class="hotel-image">
+                            <img
+                                src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=900&q=85"
+                                alt="هوتل خانوادگی"
+                                loading="lazy"
+                            >
+                            <span class="hotel-badge family-badge">
+                                خانوادگی
+                            </span>
+                            <button
+                                type="button"
+                                class="favorite-btn"
+                                aria-label="افزودن به علاقه‌مندی‌ها"
+                            >
+                                ♡
+                            </button>
+                        </div>
+                        <div class="hotel-info">
+                            <p class="hotel-location">
+                                📍 هرات، افغانستان
+                            </p>
+                            <h3>هوتل باغ هرات</h3>
+                            <div class="hotel-rating">
+                                <span>★ 4.7</span>
+                                <small>مناسب خانواده</small>
+                            </div>
+                            <div class="hotel-amenities">
+                                <span>▧ وای‌فای</span>
+                                <span>♨ صبحانه</span>
+                                <span>▣ پارکینگ</span>
+                            </div>
+                            <div class="hotel-bottom">
+                                <div class="hotel-price">
+                                    <strong>$65</strong>
+                                    <span>/ هر شب</span>
+                                </div>
+                                <button
+                                    type="button"
+                                    class="details-btn"
+                                >
+                                    جزئیات
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- HOTEL 3 -->
+                    <article
+                        class="hotel-card"
+                        data-id="hotel-3"
+                        data-name="هوتل آرام مزار"
+                        data-city="mazar"
+                        data-price="45"
+                        data-category="budget"
+                    >
+                        <div class="hotel-image">
+                            <img
+                                src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=900&q=85"
+                                alt="اتاق هوتل اقتصادی"
+                                loading="lazy"
+                            >
+                            <span class="hotel-badge budget-badge">
+                                اقتصادی
+                            </span>
+                            <button
+                                type="button"
+                                class="favorite-btn"
+                                aria-label="افزودن به علاقه‌مندی‌ها"
+                            >
+                                ♡
+                            </button>
+                        </div>
+                        <div class="hotel-info">
+                            <p class="hotel-location">
+                                📍 مزار شریف، افغانستان
+                            </p>
+                            <h3>هوتل آرام مزار</h3>
+                            <div class="hotel-rating">
+                                <span>★ 4.5</span>
+                                <small>قیمت مناسب</small>
+                            </div>
+                            <div class="hotel-amenities">
+                                <span>▧ وای‌فای</span>
+                                <span>❄ تهویه</span>
+                                <span>▣ اتاق راحت</span>
+                            </div>
+                            <div class="hotel-bottom">
+                                <div class="hotel-price">
                                     <strong>$45</strong>
-                                    <span> / هر شب</span>
-                                </p>
-
-                                <a href="hotel.html?id=1"
-                                    class="details-button">
+                                    <span>/ هر شب</span>
+                                </div>
+                                <button
+                                    type="button"
+                                    class="details-btn"
+                                >
                                     جزئیات
-                                </a>
-
+                                </button>
                             </div>
-
-                            <a
-                                href="https://wa.me/93783777472"
-                                class="whatsapp-button"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                رزرو از طریق واتساپ
-                            </a>
-
                         </div>
                     </article>
-
-
-                    <!-- Hotel 2 -->
-                    <article class="hotel-card"
-                        data-city="هرات"
-                        data-price="30">
-
-                        <img
-                            class="hotel-image"
-                            src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=800&q=80"
-                            alt="تصویر نمونه هوتل"
-                            loading="lazy"
-                        >
-
-                        <div class="hotel-content">
-
-                            <div class="hotel-location">
-                                هرات، افغانستان
-                            </div>
-
-                            <h3>هوتل نمونه هرات</h3>
-
-                            <p class="hotel-description">
-                                اتاق‌های پاک و محیط آرام برای مسافران.
+                    <!-- HOTEL 4 -->
+                    <article
+                        class="hotel-card"
+                        data-id="hotel-4"
+                        data-name="هوتل  قندهار"
+                        data-city="kandahar"
+                        data-price="80"
+                        data-category="family"
+                    >
+                        <div class="hotel-image">
+                            <img
+                                src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=900&q=85"
+                                alt="هوتل با امکانات رفاهی"
+                                loading="lazy"
+                            >
+                            <span class="hotel-badge popular-badge">
+                                محبوب
+                            </span>
+                            <button
+                                type="button"
+                                class="favorite-btn"
+                                aria-label="افزودن به علاقه‌مندی‌ها"
+                            >
+                                ♡
+                            </button>
+                        </div>
+                        <div class="hotel-info">
+                            <p class="hotel-location">
+                                📍 قندهار، افغانستان
                             </p>
-
+                            <h3>هوتل سپین غر</h3>
+                            <div class="hotel-rating">
+                                <span>★ 4.8</span>
+                                <small>اقامت راحت</small>
+                            </div>
                             <div class="hotel-amenities">
-                                <span>وای‌فای</span>
-                                <span>تهویه</span>
-                                <span>صبحانه</span>
+                                <span>▧ وای‌فای</span>
+                                <span>♨ رستورانت</span>
+                                <span>▣ پارکینگ</span>
                             </div>
-
                             <div class="hotel-bottom">
-
-                                <p class="hotel-price">
-                                    <strong>$30</strong>
-                                    <span> / هر شب</span>
-                                </p>
-
-                                <a href="hotel.html?id=2"
-                                    class="details-button">
+                                <div class="hotel-price">
+                                    <strong>$80</strong>
+                                    <span>/ هر شب</span>
+                                </div>
+                                <button
+                                    type="button"
+                                    class="details-btn"
+                                >
                                     جزئیات
-                                </a>
-
+                                </button>
                             </div>
-
-                            <a
-                                href="https://wa.me/93783777472"
-                                class="whatsapp-button"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                رزرو از طریق واتساپ
-                            </a>
-
                         </div>
                     </article>
-
-
-                    <!-- Hotel 3 -->
-                    <article class="hotel-card"
-                        data-city="مزار شریف"
-                        data-price="50">
-
-                        <img
-                            class="hotel-image"
-                            src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=800&q=80"
-                            alt="تصویر نمونه هوتل"
-                            loading="lazy"
-                        >
-
-                        <div class="hotel-content">
-
-                            <div class="hotel-location">
-                                مزار شریف، افغانستان
-                            </div>
-
-                            <h3>هوتل نمونه مزار شریف</h3>
-
-                            <p class="hotel-description">
-                                اقامت راحت برای سفرهای کاری و تفریحی.
-                            </p>
-
-                            <div class="hotel-amenities">
-                                <span>وای‌فای</span>
-                                <span>پارکینگ</span>
-                                <span>رستورانت</span>
-                            </div>
-
-                            <div class="hotel-bottom">
-
-                                <p class="hotel-price">
-                                    <strong>$50</strong>
-                                    <span> / هر شب</span>
-                                </p>
-
-                                <a href="hotel.html?id=3"
-                                    class="details-button">
-                                    جزئیات
-                                </a>
-
-                            </div>
-
-                            <a
-                                href="https://wa.me/93783777472"
-                                class="whatsapp-button"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                رزرو از طریق واتساپ
-                            </a>
-
-                        </div>
-                    </article>
-
-
-                    <!-- Hotel 4 -->
-                    <article class="hotel-card"
-                        data-city="قندهار"
-                        data-price="40">
-
-                        <img
-                            class="hotel-image"
-                            src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80"
-                            alt="تصویر نمونه هوتل"
-                            loading="lazy"
-                        >
-
-                        <div class="hotel-content">
-
-                            <div class="hotel-location">
-                                قندهار، افغانستان
-                            </div>
-
-                            <h3>هوتل نمونه قندهار</h3>
-
-                            <p class="hotel-description">
-                                اتاق‌های مجهز و خدمات مناسب برای مهمانان.
-                            </p>
-
-                            <div class="hotel-amenities">
-                                <span>وای‌فای</span>
-                                <span>تهویه</span>
-                                <span>پارکینگ</span>
-                            </div>
-
-                            <div class="hotel-bottom">
-
-                                <p class="hotel-price">
-                                    <strong>$40</strong>
-                                    <span> / هر شب</span>
-                                </p>
-
-                                <a href="hotel.html?id=4"
-                                    class="details-button">
-                                    جزئیات
-                                </a>
-
-                            </div>
-
-                            <a
-                                href="https://wa.me/93783777472"
-                                class="whatsapp-button"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                رزرو از طریق واتساپ
-                            </a>
-
-                        </div>
-                    </article>
-
                 </div>
-
-                <p id="noResults" hidden>
-                    هوتلی با این مشخصات پیدا نشد.
-                </p>
-
+                <!-- No Results -->
+                <div class="no-results" id="noResults" hidden>
+                    <span class="no-results-icon">⌕</span>
+                    <h3>هوتلی پیدا نشد!</h3>
+                    <p>
+                        لطفاً شهر، قیمت یا نوع هوتل دیگری را انتخاب کنید.
+                    </p>
+                    <button
+                        type="button"
+                        class="reset-search-btn"
+                        id="resetSearch"
+                    >
+                        نمایش همه هوتل‌ها
+                    </button>
+                </div>
             </div>
         </section>
-
-
-        <!-- Why Choose Us -->
-        <section class="features section-padding" id="about">
+        <!-- ==============================
+             FAVORITES SECTION
+        =============================== -->
+        <section class="section favorites-section" id="favorites">
             <div class="container">
-
                 <div class="section-heading">
-                    <p class="section-label">چرا هوتل‌یاب؟</p>
-
-                    <h2>رزرو هوتل به روش آسان</h2>
+                    <div class="section-heading-title">
+                        <span class="section-eyebrow">
+                            انتخاب‌های شخصی شما
+                        </span>
+                        <h2>هوتل‌های مورد علاقه</h2>
+                    </div>
+                    <p>
+                        هوتل‌هایی را که پسندیده‌اید، اینجا پیدا کنید.
+                    </p>
                 </div>
-
-                <div class="features-grid">
-
-                    <div class="feature-card">
-                        <h3>جستجوی آسان</h3>
+                <div class="favorites-grid" id="favoritesGrid">
+                    <div class="favorites-empty" id="favoritesEmpty">
+                        <span>♡</span>
+                        <h3>هنوز هوتلی انتخاب نکرده‌اید</h3>
                         <p>
-                            هوتل‌ها را بر اساس شهر و قیمت پیدا کنید.
+                            روی علامت قلب هوتل مورد علاقه خود کلیک کنید.
                         </p>
                     </div>
-
-                    <div class="feature-card">
-                        <h3>تماس مستقیم</h3>
-                        <p>
-                            بدون نیاز به پرداخت آنلاین، از طریق واتساپ
-                            با مسئول هوتل تماس بگیرید.
-                        </p>
-                    </div>
-
-                    <div class="feature-card">
-                        <h3>انتخاب بهتر</h3>
-                        <p>
-                            عکس‌ها، امکانات و قیمت‌های هوتل‌ها را
-                            پیش از تماس بررسی کنید.
-                        </p>
-                    </div>
-
                 </div>
-
             </div>
         </section>
-
+        <!-- ==============================
+             ABOUT SECTION
+        =============================== -->
+        <section class="section about-section" id="about">
+            <div class="container about-content">
+                <div class="about-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1100&q=85"
+                        alt="نمای زیبای هوتل"
+                        loading="lazy"
+                    >
+                    <div class="about-image-label">
+                        <span>✦</span>
+                        <div>
+                            <strong>هوتل‌یاب</strong>
+                            <small>همراه سفر شما</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <span class="section-eyebrow">
+                        درباره هوتل‌یاب
+                    </span>
+                    <h2>
+                        سفر بهتر از
+                        <span>انتخاب درست</span>
+                        شروع می‌شود
+                    </h2>
+                    <p>
+                        هوتل‌یاب برای آسان پیدا کردن هوتل در افغانستان
+                        ساخته شده است. شما می‌توانید هوتل‌های شهرهای مختلف را
+                        ببینید، قیمت‌ها را مقایسه کنید و برای دریافت معلومات
+                        و درخواست رزرو مستقیماً با هوتل تماس بگیرید.
+                    </p>
+                    <div class="about-features">
+                        <div class="about-feature">
+                            <span>✓</span>
+                            <div>
+                                <strong>جست‌وجوی آسان</strong>
+                                <small>هوتل مناسب خود را سریع پیدا کنید.</small>
+                            </div>
+                        </div>
+                        <div class="about-feature">
+                            <span>✓</span>
+                            <div>
+                                <strong>مقایسه قیمت</strong>
+                                <small>انتخاب بر اساس بودجه شما.</small>
+                            </div>
+                        </div>
+                        <div class="about-feature">
+                            <span>✓</span>
+                            <div>
+                                <strong>ارتباط مستقیم</strong>
+                                <small>درخواست رزرو از طریق واتساپ.</small>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#hotels" class="about-button">
+                        پیدا کردن هوتل
+                        <span>←</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- ==============================
+             CONTACT SECTION
+        =============================== -->
+        <section class="section contact-section" id="contact">
+            <div class="container">
+                <div class="contact-box">
+                    <div class="contact-content">
+                        <span class="section-eyebrow">
+                            ما در کنار شما هستیم
+                        </span>
+                        <h2>برای انتخاب هوتل به کمک نیاز دارید؟</h2>
+                        <p>
+                            برای دریافت معلومات بیشتر با ما تماس بگیرید.
+                        </p>
+                    </div>
+                    <a
+                        href="mailto:bilalyousufzai2019@gmail.com"
+                        class="contact-button"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <span>✉</span>
+                        ارسال ایمیل
+                    </a>
+                </div>
+            </div>
+        </section>
     </main>
-
-
-    <!-- Footer -->
-    <footer class="footer" id="contact">
-        <div class="container footer-content">
-
-            <div>
-                <a href="#home" class="logo footer-logo">
-                    هوتل‌یاب
-                </a>
-
-                <p>
-                    راه آسان پیدا کردن هوتل در افغانستان.
-                </p>
-            </div>
-
-            <div class="footer-links">
-                <h3>لینک‌های مفید</h3>
-                <a href="#home">صفحه اصلی</a>
-                <a href="#cities">شهرها</a>
-                <a href="#hotels">هوتل‌ها</a>
-            </div>
-
-            <div class="footer-contact">
-                <h3>تماس با ما</h3>
-                <p>ایمیل: info@example.com</p>
-                <p>افغانستان</p>
-            </div>
-
-        </div>
-
-        <div class="footer-bottom">
-            <p>
-                © 2026 هوتل‌یاب . تمام حقوق محفوظ است.
+    <!-- ==============================
+         HOTEL DETAILS AND BOOKING DIALOG
+    =============================== -->
+    <dialog id="hotelDialog" class="hotel-dialog">
+        <div class="dialog-content">
+            <button
+                type="button"
+                id="closeDialog"
+                class="close-dialog"
+                aria-label="بستن"
+            >
+                ×
+            </button>
+            <span class="section-eyebrow">
+                درخواست رزرو
+            </span>
+            <h2 id="dialogHotelName">نام هوتل</h2>
+            <p id="dialogHotelInfo"></p>
+            <form id="bookingForm">
+                <div class="form-group">
+                    <label for="guestName">نام شما</label>
+                    <input
+                        type="text"
+                        id="guestName"
+                        name="guestName"
+                        placeholder="نام خود را وارد کنید"
+                        required
+                    >
+                </div>
+                <div class="form-group">
+                    <label for="guestPhone">شماره تماس شما</label>
+                    <input
+                        type="tel"
+                        id="guestPhone"
+                        name="guestPhone"
+                        placeholder="شماره تماس"
+                        required
+                    >
+                </div>
+                <div class="form-group">
+                    <label for="checkIn">تاریخ ورود</label>
+                    <input
+                        type="date"
+                        id="checkIn"
+                        name="checkIn"
+                        required
+                    >
+                </div>
+                <div class="form-group">
+                    <label for="checkOut">تاریخ خروج</label>
+                    <input
+                        type="date"
+                        id="checkOut"
+                        name="checkOut"
+                        required
+                    >
+                </div>
+                <div class="form-group">
+                    <label for="guestCount">تعداد مهمانان</label>
+                    <select id="guestCount" name="guestCount">
+                        <option value="1">۱ نفر</option>
+                        <option value="2" selected>۲ نفر</option>
+                        <option value="3">۳ نفر</option>
+                        <option value="4">۴ نفر</option>
+                        <option value="5">۵ نفر یا بیشتر</option>
+                    </select>
+                </div>
+                <button
+                    type="submit"
+                    class="booking-button"
+                >
+                    ادامه از طریق واتساپ
+                    <span>↗</span>
+                </button>
+            </form>
+            <p class="dialog-note">
+                درخواست شما برای بررسی به هوتل ارسال می‌شود.
+                تأیید نهایی باید توسط هوتل انجام شود.
             </p>
         </div>
+    </dialog>
+    <!-- ==============================
+         FOOTER
+    =============================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <a href="#home" class="logo footer-logo">
+                        <span class="logo-symbol">H</span>
+                        <span class="logo-text">
+                            <strong>هوتل‌یاب</strong>
+                            <small>بهترین هوتل‌ها، در یک‌جا</small>
+                        </span>
+                    </a>
+                    <p>
+                        راه آسان برای پیدا کردن هوتل در افغانستان؛
+                        انتخاب بهتر، سفر راحت‌تر.
+                    </p>
+                </div>
+                <div class="footer-column">
+                    <h3>دسترسی سریع</h3>
+                    <a href="#home">صفحه اصلی</a>
+                    <a href="#cities">شهرها</a>
+                    <a href="#hotels">هوتل‌ها</a>
+                    <a href="#favorites">علاقه‌مندی‌ها</a>
+                </div>
+                <div class="footer-column">
+                    <h3>هوتل‌یاب</h3>
+                    <a href="#about">درباره ما</a>
+                    <a href="#contact">تماس با ما</a>
+                    <a href="#hotels">هوتل‌های محبوب</a>
+                </div>
+                <div class="footer-column">
+                    <h3>تماس با ما</h3>
+                    <a href="mailto:bilalyousufzai2019@gmail.com">
+                        ✉ bilalyousufzai2019@gmail.com
+                    </a>
+                    <a href="#contact">
+                        معلومات بیشتر
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>
+                    © 2026 هوتل‌یاب. تمام حقوق محفوظ است.
+                </p>
+                <a href="#home">
+                    بازگشت به بالا ↑
+                </a>
+            </div>
+        </div>
     </footer>
-
-
-    <!-- JavaScript -->
-    <script src="script.js"></script>
-
 </body>
 </html>
